@@ -5,6 +5,7 @@ const mainRoute = require('./routes/main')
 
 const connectToDatabase = require('./database/connect');
 const cors = require('./middlewares/cors');
+const gamesRouter = require('./routes/games');
 
 
 const app = express();
@@ -16,8 +17,10 @@ app.use(
   cors, 
   bodyParser.json(),
   mainRoute,
-  express.static(path.join(__dirname, 'public')),
+  gamesRouter,
 
+  express.static(path.join(__dirname, 'public')),
+ 
 );
 
 app.listen(PORT);
