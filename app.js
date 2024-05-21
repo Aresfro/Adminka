@@ -1,12 +1,12 @@
 const express = require('express');
 const path = require('path');
+const cors = require('./middlewares/cors')
 const mainRoute = require('./routes/main');
 const gamesRouter = require('./routes/games'); 
 const PORT = 3000;
 const app = express();
 
 app.use(
-  path,
   cors,
   bodyParser.json(),
   mainRoute, 
