@@ -8,6 +8,7 @@ const {
   findGameById,
   deleteGame
 } = require("../middlewares/games");
+
 const { sendAllGames, sendUpdatedGames } = require("../controllers/games");
 
 gamesRouter.get("/games", getAllGames, sendAllGames);
