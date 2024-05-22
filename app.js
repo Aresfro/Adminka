@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieParser = require("cookie-parser");
 const path = require('path');
 
 const {apiRouter} = require("./routes/apiRouter");
@@ -14,6 +15,7 @@ connectToDatabase();
 
 app.use(
   cors, 
+  cookieParser(),
   bodyParser.json(),
   express.static(path.join(__dirname, 'public')),
   apiRouter,
