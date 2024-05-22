@@ -46,4 +46,4 @@ const deleteCategory = async (req, res, next) => {
   }
 };
 
-module.exports = findAllCategories, createCategory, findCategoryById, updateCategory, deleteCategory;
+module.exports = {findAllCategories, createCategory, findCategoryById, updateCategory, deleteCategory};

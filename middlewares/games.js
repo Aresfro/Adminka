@@ -59,5 +59,5 @@ const deleteGame = async (req, res, next) => {
 
 
 
-module.exports = findAllGames, createGame, findGameById, updateGame, deleteGame;
+module.exports = {findAllGames, createGame, findGameById, updateGame, deleteGame};
 

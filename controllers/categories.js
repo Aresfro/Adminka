@@ -5,12 +5,12 @@ const sendAllCategories = (req, res) => {
 
 const sendCategoryCreated = (req, res) => {
   res.setHeader("Content-Type", "application/json");
-  res.end(JSON.stringify(req.game));
+  res.end(JSON.stringify(req.category));
 };
 
 const sendCategoryById = (req, res) => {
   res.setHeader("Content-Type", "application/json");
-  res.end(JSON.stringify(req.game));
+  res.end(JSON.stringify(req.category));
 };
 
 const sendCategoryUpdated = (req, res) => {
@@ -18,9 +18,9 @@ const sendCategoryUpdated = (req, res) => {
   res.status(200).send(JSON.stringify({ message: "Категория обновлена" }));
 };
 
-const sendUserDeleted = (req, res) => {
+const sendCategoryDeleted = (req, res) => {
   res.setHeader("Content-Type", "application/json");
-  res.end(JSON.stringify(req.game));
+  res.end(JSON.stringify(req.category));
   };
 
-module.exports = sendAllCategories, sendCategoryCreated, sendCategoryById, sendCategoryUpdated, sendUserDeleted;
+module.exports = {sendAllCategories, sendCategoryCreated, sendCategoryById, sendCategoryUpdated, sendCategoryDeleted};

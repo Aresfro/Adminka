@@ -1,30 +1,25 @@
 const usersRouter = require('express').Router();
-const findAllUsers = require('../middlewares/users');
-const sendAllUsers = require('../controllers/users');
-const createUser = require('../middlewares/users');
-const sendUserCreated = require('../controllers/users')
+
+const {
+    findAllUsers,
+    createUser,
+    findUserById,
+    updateUser,
+    deleteUser
+} = require('../middlewares/users')
+
+const {
+    sendAllUsers,
+    sendUserCreated,
+    sendUserById,
+    sendUserUpdated,
+    sendUserDeleted
+} = require('../controllers/users');
+
 usersRouter.get('/users', findAllUsers, sendAllUsers);
+usersRouter.put("/users/:id", updateUser, sendUserUpdated);
+usersRouter.get("/users/:id", findUserById, sendUserById);
+usersRouter.delete("/users/:id", deleteUser, sendUserDeleted);
 usersRouter.post("/users", findAllUsers, createUser, sendUserCreated);
 
-const findUserById = require('../middlewares/users');
-const sendUserById = require('../controllers/users');
-usersRouter.get("/users/:id", findUserById, sendUserById);
-
-const updateUser = require('../middlewares/users');
-const sendUserUpdated = require('../controllers/users');
-usersRouter.put(
-    "/users/:id",
-    updateUser,
-    sendUserUpdated
-);
-
-
-const deleteUser = require('../middlewares/users');
-const sendUserDeleted = require('../controllers/users');
-usersRouter.delete(
-    "/games/:id",
-    deleteUser,
-    sendUserDeleted
-  );
-
-module.exports = usersRouter;
+module.exports = {usersRouter};

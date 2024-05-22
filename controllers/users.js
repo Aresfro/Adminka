@@ -8,9 +8,9 @@ const sendUserCreated = (req, res) => {
   res.end(JSON.stringify(req.user));
 };
 
-const sendCategoryById = (req, res) => {
+const sendUserById = (req, res) => {
   res.setHeader("Content-Type", "application/json");
-  res.end(JSON.stringify(req.game));
+  res.end(JSON.stringify(req.user));
 };
 
 const sendUserUpdated = (req, res) => {
@@ -20,7 +20,7 @@ const sendUserUpdated = (req, res) => {
 
 const sendUserDeleted = (req, res) => {
   res.setHeader("Content-Type", "application/json");
-  res.end(JSON.stringify(req.game));
+  res.end(JSON.stringify(req.user));
   };
 
-module.exports = sendAllUsers, sendUserCreated, sendCategoryById, sendUserUpdated, sendUserDeleted;
+module.exports = {sendAllUsers, sendUserCreated, sendUserById, sendUserUpdated, sendUserDeleted};
