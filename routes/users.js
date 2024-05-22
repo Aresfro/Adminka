@@ -5,7 +5,10 @@ const {
     createUser,
     findUserById,
     updateUser,
-    deleteUser
+    deleteUser,
+    checkIsUserExists,
+    checkEmptyNameAndEmailAndPassword,
+    checkEmptyNameAndEmail
 } = require('../middlewares/users')
 
 const {
@@ -16,10 +19,38 @@ const {
     sendUserDeleted
 } = require('../controllers/users');
 
-usersRouter.get('/users', findAllUsers, sendAllUsers);
-usersRouter.put("/users/:id", updateUser, sendUserUpdated);
-usersRouter.get("/users/:id", findUserById, sendUserById);
-usersRouter.delete("/users/:id", deleteUser, sendUserDeleted);
-usersRouter.post("/users", findAllUsers, createUser, sendUserCreated);
+usersRouter.get(
+    '/users',
+    findAllUsers,
+    sendAllUsers
+);
 
-module.exports = {usersRouter};
+usersRouter.get(
+    "/users/:id",
+    findUserById,
+    sendUserById
+);
+
+usersRouter.delete(
+    "/users/:id",
+    deleteUser,
+    sendUserDeleted
+);
+
+usersRouter.post(
+    "/users",
+    findAllUsers,
+    checkIsUserExists,
+    checkEmptyNameAndEmailAndPassword,
+    createUser,
+    sendUserCreated
+);
+
+usersRouter.put(
+    "/users/:id",
+    checkEmptyNameAndEmail,
+    updateUser,
+    sendUserUpdated
+);
+
+module.exports = { usersRouter };
