@@ -14,3 +14,4 @@ const allowedCors = [
     next();
 };
 
+module.exports = cors;
